@@ -1,0 +1,138 @@
+/**
+  Baseline styles on bare elements that can consume tokens, but don't define them.
+*/
+
+@layer fluff.base {
+  /*
+    Global styles
+    Low-specificity, global styles
+  */
+
+  html {
+    font-family: var(--font-body, system-ui, sans-serif);
+    color: var(--color-text, #111);
+    background-color: var(--color-bg, #fff);
+  }
+
+  body {
+    font-size: var(--font-size-base);
+    font-optical-sizing: auto;
+    line-height: var(--leading-standard);
+    font-size-adjust: from-font;
+    /* display: grid;
+    grid-template-rows: [header] auto [main] 1fr [footer] auto;
+    gap: var(--space-xl); */
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color var(--transition-base);
+    }
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: var(--anchor-text-decoration, none);
+    text-decoration-thickness: 1px;
+    transition:
+      color var(--transition-base),
+      text-decoration-thickness var(--transition-base);
+
+    &:hover {
+      color: var(--color-link-active);
+      text-decoration-thickness: 2px;
+    }
+
+    main & {
+      text-decoration: var(--anchor-text-decoration);
+      text-underline-offset: 0.15em;
+      transition: text-underline-offset var(--transition-base);
+
+      &:hover {
+        text-underline-offset: 0.2em;
+      }
+    }
+  }
+
+  main {
+    --anchor-text-decoration: underline;
+  }
+
+  hr {
+    height: 0;
+    margin-block: var(--hr-space, var(--space-s));
+    border-width: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  strong {
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  main img {
+    outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+    outline-offset: -1px;
+  }
+
+  /* Accessibility */
+
+  /*
+      Firefox is the only browser that doesn't outline the whole element unless you
+      make it display: inline-block. That in itself causes multiple flow issues, so
+      we can detect it using its own vendor prefix and reduce focus offset
+  */
+
+  @supports (-moz-appearance: none) {
+    :root {
+      --focus-offset: 0.08em;
+    }
+  }
+
+  /* Favour focus-visible over focus so click events don't trigger focus styles */
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset, 0.2lh);
+  }
+
+  ::selection {
+    color: var(--selection-text-color);
+    background: var(--selection-background);
+  }
+
+  /* Base typography */
+
+  :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--heading-letter-spacing, -0.02em);
+  }
+
+  :where(h1, .h1) {
+    font-size: var(--font-size-h1, var(--text-size-step-6));
+  }
+
+  :where(h2, .h2) {
+    font-size: var(--font-size-h2, var(--text-size-step-5));
+  }
+
+  :where(h3, .h3) {
+    font-size: var(--font-size-h3, var(--text-size-step-4));
+  }
+
+  :where(h4, .h4) {
+    font-size: var(--font-size-h4, var(--text-size-step-3));
+  }
+
+  :where(h5, .h5, h6, .h6) {
+    font-size: var(--font-size-h5, var(--text-size-step-2));
+  }
+
+  s {
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--strikethrough-color, var(--color-link-active));
+    color: color-mix(in srgb, currentColor, transparent 30%);
+  }
+}

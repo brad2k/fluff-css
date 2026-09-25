@@ -1,0 +1,154 @@
+/* 
+    An opinionated reset inspired by:
+    https://piccalil.li/blog/a-more-modern-css-reset/
+    https://www.joshwcomeau.com/css/custom-css-reset/
+    https://frontendmasters.com/blog/the-coyier-css-starter/
+*/
+
+/* Box sizing rules */
+
+@layer fluff.reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Some sensible typographic and container defaults */
+
+  :where(html) {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    overflow-y: auto;
+    hanging-punctuation: first allow-end last;
+    word-break: break-word;
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  /* Set core body defaults */
+
+  :where(body) {
+    min-block-size: 100svh;
+  }
+
+  /* Remove default margin on almost everything */
+
+  :where(:not(dialog)) {
+    margin: 0;
+  }
+
+  /*
+    Lists with classes will be considered custom and reset
+  */
+
+  :where(ul[class], ol[class]) {
+    padding: 0;
+    list-style: none;
+  }
+
+  /*
+    A sensible bit of spacing
+    Verbose, but it says "target all <li> elements that follow another <li>
+    (i.e. not the first) whose parent <ul> or <ol> don't have a class".
+  */
+
+  :where(ul, ol):not([class]) {
+    & ul,
+    & ol {
+      margin-top: 0.75em;
+    }
+
+    & > li + li {
+      margin-top: 0.5em;
+    }
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+
+  :where(h1, h2, h3, h4, h5, h6, button, input, label) {
+    line-height: 1.1;
+  }
+
+  :where(p, h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: break-word;
+  }
+
+  /* Balance text wrapping on headings */
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    text-wrap: balance;
+  }
+
+  /* Use pretty wrapping on longer-form content */
+  :where(p, li, dd) {
+    text-wrap: pretty;
+  }
+
+  :where(a) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+
+  :where(input, button, textarea, select) {
+    font: inherit;
+  }
+
+  /* Button resets */
+
+  :where(button) {
+    display: block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+  }
+
+  /* Make most input elements occupy their container width */
+  :where(
+    input:not(
+      [type="submit"],
+      [type="checkbox"],
+      [type="radio"],
+      [type="button"],
+      [type="reset"]
+    )
+  ) {
+    inline-size: 100%;
+  }
+
+  /* Make images easier to work with */
+
+  :where(img, video) {
+    display: block;
+    block-size: auto;
+    max-inline-size: 100%;
+  }
+
+  :where(svg) {
+    display: inline-block;
+    block-size: auto;
+    max-inline-size: 100%;
+
+    &:not([class]) {
+      block-size: 1lh;
+    }
+  }
+
+  :where(figure) {
+    inline-size: fit-content;
+    margin-inline: auto;
+  }
+
+  :where(figcaption) {
+    contain: inline-size;
+    font-size: 100%;
+  }
+}

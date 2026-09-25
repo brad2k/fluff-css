@@ -1,0 +1,33 @@
+/* Design tokens. Primitives (scales) live in primitives.css; these are the semantic values. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Color */
+  --color-text: light-dark(#161616, #ededed);
+  --color-bg: light-dark(#ffffff, #121212);
+  --color-border: light-dark(#d8d8d8, #333333);
+  --color-link-active: light-dark(#0b5fff, #7aa7ff);
+
+  /* Typography */
+  --font-body: system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --font-size-base: var(--step-0);
+  --leading-standard: 1.5;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-h1: var(--step-5);
+  --font-size-h2: var(--step-4);
+  --font-size-h3: var(--step-3);
+  --font-size-h4: var(--step-2);
+  --font-size-h5: var(--step-1);
+
+  /* Motion */
+  --transition-base: 150ms ease;
+
+  /* Focus & selection */
+  --focus-ring: 2px solid var(--color-link-active);
+  --selection-text-color: var(--color-bg);
+  --selection-background: var(--color-text);
+}

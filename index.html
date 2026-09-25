@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fluff-css playground</title>
+  <link rel="stylesheet" href="./index.css">
+  <style>
+    /* Playground-only styles */
+    .swatch { padding: var(--space-xs); border: 1px solid var(--color-border); }
+  </style>
+</head>
+<body>
+  <div class="stack" style="max-width: 60rem; margin-inline: auto; padding: var(--space-l) var(--space-s);">
+    <header class="repel">
+      <strong>fluff-css</strong>
+      <nav class="cluster"><a href="#type">Type</a><a href="#space">Space</a><a href="#comp">Composition</a></nav>
+    </header>
+
+    <main class="stack" style="--stack-space: var(--space-xl);">
+      <section id="type" class="flow">
+        <h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5>
+        <p>Body copy with a <a href="#">link</a>, <strong>strong text</strong>, <s>struck text</s> and <code>inline code</code>. Tab through the page to see the focus ring.</p>
+        <hr>
+        <p><span class="visually-hidden">Hidden text</span>(a visually-hidden span sits before this.)</p>
+      </section>
+
+      <section id="space" class="stack" style="--stack-space: var(--space-2xs);">
+        <h2>Space scale</h2>
+        <div style="display:grid; gap:.25rem">
+          <div style="background:var(--color-border); height:var(--space-3xs)"></div>
+          <div style="background:var(--color-border); height:var(--space-2xs)"></div>
+          <div style="background:var(--color-border); height:var(--space-xs)"></div>
+          <div style="background:var(--color-border); height:var(--space-s)"></div>
+          <div style="background:var(--color-border); height:var(--space-m)"></div>
+          <div style="background:var(--color-border); height:var(--space-l)"></div>
+          <div style="background:var(--color-border); height:var(--space-xl)"></div>
+        </div>
+      </section>
+
+      <section id="comp" class="stack">
+        <h2>Composition</h2>
+        <div class="cluster"><span class="swatch">cluster</span><span class="swatch">cluster</span><span class="swatch">cluster</span></div>
+        <div class="repel"><span class="swatch">repel</span><span class="swatch">repel</span></div>
+        <div class="auto-grid"><div class="swatch">auto-grid</div><div class="swatch">auto-grid</div><div class="swatch">auto-grid</div><div class="swatch">auto-grid</div></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
