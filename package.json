@@ -5,9 +5,15 @@
   "type": "module",
   "style": "./index.css",
   "exports": {
-    ".": "./index.css",
-    "./*": "./src/*.css"
+    ".": {
+      "types": "./types/css.d.ts",
+      "default": "./index.css"
+    },
+    "./*": {
+      "types": "./types/css.d.ts",
+      "default": "./src/*.css"
+    }
   },
-  "files": ["index.css", "src"],
+  "files": ["index.css", "src", "types"],
   "license": "UNLICENSED"
 }

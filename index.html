@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="./index.css">
   <style>
     /* Playground-only styles */
+    .chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: var(--space-2xs); }
+    .chip { padding: var(--space-xs); border: 1px solid var(--color-border); font-size: var(--step--1); min-height: 4rem; word-break: break-word; }
     .swatch { padding: var(--space-xs); border: 1px solid var(--color-border); }
   </style>
 </head>
@@ -14,7 +16,7 @@
   <div class="stack" style="max-width: 60rem; margin-inline: auto; padding: var(--space-l) var(--space-s);">
     <header class="repel">
       <strong>fluff-css</strong>
-      <nav class="cluster"><a href="#type">Type</a><a href="#space">Space</a><a href="#comp">Composition</a></nav>
+      <nav class="cluster"><a href="#type">Type</a><a href="#color">Color</a><a href="#space">Space</a><a href="#comp">Composition</a></nav>
     </header>
 
     <main class="stack" style="--stack-space: var(--space-xl);">
@@ -23,6 +25,16 @@
         <p>Body copy with a <a href="#">link</a>, <strong>strong text</strong>, <s>struck text</s> and <code>inline code</code>. Tab through the page to see the focus ring.</p>
         <hr>
         <p><span class="visually-hidden">Hidden text</span>(a visually-hidden span sits before this.)</p>
+      </section>
+
+      <section id="color" class="stack" style="--stack-space: var(--space-xs);">
+        <h2>Color</h2>
+        <h3>Grey scale</h3>
+        <div class="chips"><div class="chip" style="background:var(--color-grey-50); color:var(--color-grey-900)">50</div><div class="chip" style="background:var(--color-grey-100); color:var(--color-grey-900)">100</div><div class="chip" style="background:var(--color-grey-200); color:var(--color-grey-900)">200</div><div class="chip" style="background:var(--color-grey-300); color:var(--color-grey-900)">300</div><div class="chip" style="background:var(--color-grey-400); color:var(--color-grey-900)">400</div><div class="chip" style="background:var(--color-grey-500); color:var(--color-grey-50)">500</div><div class="chip" style="background:var(--color-grey-600); color:var(--color-grey-50)">600</div><div class="chip" style="background:var(--color-grey-700); color:var(--color-grey-50)">700</div><div class="chip" style="background:var(--color-grey-800); color:var(--color-grey-50)">800</div><div class="chip" style="background:var(--color-grey-900); color:var(--color-grey-50)">900</div></div>
+        <h3>Overlays</h3>
+        <div class="chips"><div class="chip" style="background:var(--color-bg) linear-gradient(var(--color-overlay-subtle),var(--color-overlay-subtle)); color:var(--color-text)">--color-overlay-subtle</div><div class="chip" style="background:var(--color-bg) linear-gradient(var(--color-overlay),var(--color-overlay)); color:var(--color-text)">--color-overlay</div><div class="chip" style="background:var(--color-bg) linear-gradient(var(--color-overlay-strong),var(--color-overlay-strong)); color:var(--color-text)">--color-overlay-strong</div></div>
+        <h3>Semantic tokens</h3>
+        <div class="chips"><div class="chip" style="background:var(--color-text); color:var(--color-text)">--color-text</div><div class="chip" style="background:var(--color-bg); color:var(--color-text)">--color-bg</div><div class="chip" style="background:var(--color-border); color:var(--color-text)">--color-border</div><div class="chip" style="background:var(--color-link); color:var(--color-text)">--color-link</div><div class="chip" style="background:var(--color-link-hover); color:var(--color-text)">--color-link-hover</div></div>
       </section>
 
       <section id="space" class="stack" style="--stack-space: var(--space-2xs);">
