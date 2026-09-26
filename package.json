@@ -1,6 +1,6 @@
 {
   "name": "fluff-css",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Baseline CSS: reset, tokens, base styles, composition primitives, utilities.",
   "type": "module",
   "style": "./index.css",
