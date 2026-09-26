@@ -1,6 +1,5 @@
-/* fluff-css entry point. Layer order is declared once, here. */
-@layer fluff.reset, fluff.base, fluff.composition, fluff.utilities;
-
+/* fluff-css entry point. Layer order is declared once, in layers.css. */
+@import "./src/layers.css";
 @import "./src/primitives.css";
 @import "./src/tokens.css";
 @import "./src/reset.css";

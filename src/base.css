@@ -1,5 +1,8 @@
-/**
+/*
+
   Baseline styles on bare elements that can consume tokens, but don't define them.
+  A decent number of opinions in here.
+
 */
 
 @layer fluff.base {
@@ -19,9 +22,6 @@
     font-optical-sizing: auto;
     line-height: var(--leading-standard);
     font-size-adjust: from-font;
-    /* display: grid;
-    grid-template-rows: [header] auto [main] 1fr [footer] auto;
-    gap: var(--space-xl); */
 
     @media (prefers-reduced-motion: no-preference) {
       transition: color var(--transition-base);
@@ -29,20 +29,23 @@
   }
 
   a {
-    color: currentColor;
+    color: var(--color-link, currentColor);
     text-decoration: var(--anchor-text-decoration, none);
-    text-decoration-thickness: 1px;
-    transition:
-      color var(--transition-base),
-      text-decoration-thickness var(--transition-base);
+    text-decoration-thickness: var(--anchor-text-thickness, 1px);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        color var(--transition-base),
+        text-decoration-thickness var(--transition-base);
+    }
 
     &:hover {
-      color: var(--color-link-active);
-      text-decoration-thickness: 2px;
+      color: var(--color-link-hover, var(--color-link));
+      text-decoration-thickness: var(--anchor-text-thickness, 2px);
     }
 
     main & {
-      text-decoration: var(--anchor-text-decoration);
+      text-decoration: var(--anchor-text-decoration, underline);
       text-underline-offset: 0.15em;
       transition: text-underline-offset var(--transition-base);
 
@@ -52,15 +55,11 @@
     }
   }
 
-  main {
-    --anchor-text-decoration: underline;
-  }
-
   hr {
     height: 0;
     margin-block: var(--hr-space, var(--space-s));
     border-width: 0;
-    border-top: 1px solid var(--color-border);
+    border-top: var(--hr-width, 1px) solid var(--color-border);
   }
 
   strong {
@@ -132,7 +131,7 @@
 
   s {
     text-decoration-thickness: 2px;
-    text-decoration-color: var(--strikethrough-color, var(--color-link-active));
+    text-decoration-color: var(--strikethrough-color, var(--color-link-hover));
     color: color-mix(in srgb, currentColor, transparent 30%);
   }
 }
