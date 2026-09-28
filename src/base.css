@@ -12,42 +12,42 @@
   */
 
   html {
-    font-family: var(--font-body, system-ui, sans-serif);
-    color: var(--color-text, #111);
-    background-color: var(--color-bg, #fff);
+    font-family: var(--fc-font-body, system-ui, sans-serif);
+    color: var(--fc-color-text, #111);
+    background-color: var(--fc-color-bg-canvas, #fff);
   }
 
   body {
-    font-size: var(--font-size-base);
+    font-size: var(--fc-font-size-base);
     font-optical-sizing: auto;
-    line-height: var(--leading-standard);
+    line-height: var(--fc-leading-standard);
     font-size-adjust: from-font;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: color var(--transition-base);
+      transition: color var(--fc-animation-transition-base);
     }
   }
 
   a {
-    color: var(--color-link, currentColor);
-    text-decoration: var(--anchor-text-decoration, none);
-    text-decoration-thickness: var(--anchor-text-thickness, 1px);
+    color: var(--fc-color-link, currentColor);
+    text-decoration: var(--fc-anchor-text-decoration, none);
+    text-decoration-thickness: var(--fc-anchor-text-thickness, 1px);
 
     @media (prefers-reduced-motion: no-preference) {
       transition:
-        color var(--transition-base),
-        text-decoration-thickness var(--transition-base);
+        color var(--fc-animation-transition-base),
+        text-decoration-thickness var(--fc-animation-transition-base);
     }
 
     &:hover {
-      color: var(--color-link-hover, var(--color-link));
-      text-decoration-thickness: var(--anchor-text-thickness, 2px);
+      color: var(--fc-color-link-hover, var(--fc-color-link));
+      text-decoration-thickness: var(--fc-anchor-text-hover-thickness, 2px);
     }
 
     main & {
-      text-decoration: var(--anchor-text-decoration, underline);
+      text-decoration: var(--fc-anchor-text-decoration, underline);
       text-underline-offset: 0.15em;
-      transition: text-underline-offset var(--transition-base);
+      transition: text-underline-offset var(--fc-animation-transition-base);
 
       &:hover {
         text-underline-offset: 0.2em;
@@ -57,13 +57,13 @@
 
   hr {
     height: 0;
-    margin-block: var(--hr-space, var(--space-s));
+    margin-block: var(--fc-hr-space, var(--fc-space-s));
     border-width: 0;
-    border-top: var(--hr-width, 1px) solid var(--color-border);
+    border-top: var(--fc-hr-width, 1px) solid var(--fc-color-border);
   }
 
   strong {
-    font-weight: var(--font-weight-semi-bold);
+    font-weight: var(--fc-font-weight-semi-bold);
   }
 
   main img {
@@ -81,7 +81,7 @@
 
   @supports (-moz-appearance: none) {
     :root {
-      --focus-offset: 0.08em;
+      --fc-focus-offset: 0.08em;
     }
   }
 
@@ -92,46 +92,46 @@
   }
 
   :focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-offset, 0.2lh);
+    outline: var(--fc-focus-ring);
+    outline-offset: var(--fc-focus-offset, 0.2lh);
   }
 
   ::selection {
-    color: var(--selection-text-color);
-    background: var(--selection-background);
+    color: var(--fc-selection-text-color);
+    background: var(--fc-selection-background);
   }
 
   /* Base typography */
 
   :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
-    font-family: var(--font-display);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: var(--heading-letter-spacing, -0.02em);
+    font-family: var(--fc-font-display);
+    font-weight: var(--fc-font-weight-bold);
+    letter-spacing: var(--fc-heading-letter-spacing, -0.02em);
   }
 
   :where(h1, .h1) {
-    font-size: var(--font-size-h1, var(--text-size-step-6));
+    font-size: var(--fc-font-size-h1, var(--fc-text-size-step-6));
   }
 
   :where(h2, .h2) {
-    font-size: var(--font-size-h2, var(--text-size-step-5));
+    font-size: var(--fc-font-size-h2, var(--fc-text-size-step-5));
   }
 
   :where(h3, .h3) {
-    font-size: var(--font-size-h3, var(--text-size-step-4));
+    font-size: var(--fc-font-size-h3, var(--fc-text-size-step-4));
   }
 
   :where(h4, .h4) {
-    font-size: var(--font-size-h4, var(--text-size-step-3));
+    font-size: var(--fc-font-size-h4, var(--fc-text-size-step-3));
   }
 
   :where(h5, .h5, h6, .h6) {
-    font-size: var(--font-size-h5, var(--text-size-step-2));
+    font-size: var(--fc-font-size-h5, var(--fc-text-size-step-2));
   }
 
   s {
     text-decoration-thickness: 2px;
-    text-decoration-color: var(--strikethrough-color, var(--color-link-hover));
+    text-decoration-color: var(--fc-strikethrough-color, var(--fc-color-link-hover));
     color: color-mix(in srgb, currentColor, transparent 30%);
   }
 }
