@@ -5,35 +5,71 @@
     color-scheme: light dark;
 
     /* Color */
-    --color-text: light-dark(var(--color-grey-800), var(--color-grey-50));
-    --color-bg: light-dark(var(--color-grey-50), var(--color-grey-800));
-    --color-border: light-dark(var(--color-grey-500), var(--color-grey-200));
-    --color-link: light-dark(var(--color-grey-700), var(--color-grey-50));
-    --color-link-hover: light-dark(
-      var(--color-grey-800),
-      var(--color-grey-200)
+    --fc-color-text: light-dark(var(--fc-color-grey-800), var(--fc-color-grey-50));
+    --fc-color-bg-canvas: light-dark(var(--fc-color-grey-50), var(--fc-color-grey-800));
+    --fc-color-bg-surface: light-dark(
+      var(--fc-color-grey-100),
+      var(--fc-color-grey-800)
+    );
+    --fc-color-border: light-dark(var(--fc-color-grey-500), var(--fc-color-grey-200));
+    --fc-color-link: light-dark(var(--fc-color-grey-700), var(--fc-color-grey-50));
+    --fc-color-link-hover: light-dark(
+      var(--fc-color-grey-800),
+      var(--fc-color-grey-200)
     );
 
     /* Typography */
-    --font-body: system-ui, sans-serif;
-    --font-display: var(--font-body);
-    --font-size-base: var(--step-0);
-    --leading-standard: 1.5;
-    --font-weight-semi-bold: 600;
-    --font-weight-bold: 700;
+    --fc-font-body: system-ui, sans-serif;
+    --fc-font-display: var(--fc-font-body);
+    --fc-font-size-base: var(--fc-step-0);
+    --fc-leading-standard: 1.5;
+    --fc-font-weight-semi-bold: 600;
+    --fc-font-weight-bold: 700;
 
-    --font-size-h1: var(--step-5);
-    --font-size-h2: var(--step-4);
-    --font-size-h3: var(--step-3);
-    --font-size-h4: var(--step-2);
-    --font-size-h5: var(--step-1);
+    --fc-font-size-h1: var(--fc-step-5);
+    --fc-font-size-h2: var(--fc-step-4);
+    --fc-font-size-h3: var(--fc-step-3);
+    --fc-font-size-h4: var(--fc-step-2);
+    --fc-font-size-h5: var(--fc-step-1);
 
     /* Motion */
-    --transition-base: 150ms ease;
+    --fc-animation-transition-base: 200ms ease-in-out;
+    --fc-animation-transition-fade: 500ms ease-in-out;
+    --fc-animation-transition-snappy: 150ms linear;
 
     /* Focus & selection */
-    --focus-ring: 2px solid var(--color-link-hover);
-    --selection-text-color: var(--color-bg);
-    --selection-background: var(--color-text);
+    --fc-focus-ring: 2px solid var(--fc-color-link-hover);
+    --fc-selection-text-color: var(--fc-color-bg-surface);
+    --fc-selection-background: var(--fc-color-text);
+
+    /* z-index */
+    --fc-z-overlay: 100;
+
+    /* Customizable overrides: consumers can set these to adjust component behavior */
+
+    /* Anchor/link customization */
+    --fc-anchor-text-decoration: none;
+    --fc-anchor-text-thickness: 1px;
+    --fc-anchor-text-hover-thickness: 2px;
+
+    /* Horizontal rule customization */
+    --fc-hr-space: var(--fc-space-s);
+    --fc-hr-width: 1px;
+
+    /* Focus & accessibility */
+    --fc-focus-offset: 0.2lh;
+
+    /* Heading customization */
+    --fc-heading-letter-spacing: -0.02em;
+
+    /* Strikethrough customization */
+    --fc-strikethrough-color: var(--fc-color-link-hover);
+
+    /* Fallback heading sizes (for when h1-h5 can't use fc-font-size-h*) */
+    --fc-text-size-step-2: var(--fc-step-2);
+    --fc-text-size-step-3: var(--fc-step-3);
+    --fc-text-size-step-4: var(--fc-step-4);
+    --fc-text-size-step-5: var(--fc-step-5);
+    --fc-text-size-step-6: var(--fc-step-5);
   }
 }

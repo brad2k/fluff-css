@@ -33,7 +33,7 @@
   /* Set core body defaults */
 
   :where(body) {
-    min-block-size: 100svh;
+    min-block-size: 100dvh;
   }
 
   /* Remove default margin on almost everything */

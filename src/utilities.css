@@ -11,4 +11,22 @@
     white-space: nowrap;
     border-width: 0;
   }
+
+  .skip-link {
+    z-index: var(--fc-z-overlay, 100);
+    padding: var(--fc-space-s) var(--fc-space-m);
+    background-color: var(--fc-color-bg-surface);
+    color: var(--fc-color-text, currentColor);
+    transform: translateY(calc(-100% - (var(--fc-space-s) * 2)));
+    transition: transform var(--fc-animation-transition-base);
+    position: fixed;
+    inset-block-start: calc(var(--fc-space-s) + env(safe-area-inset-top));
+    inset-inline-start: calc(var(--fc-space-s) + env(safe-area-inset-left));
+
+    &:focus-visible {
+      outline: var(--fc-focus-ring);
+      outline-offset: 2px;
+      transform: translateY(0);
+    }
+  }
 }

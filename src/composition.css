@@ -13,17 +13,17 @@
   .cluster {
     display: flex;
     flex-wrap: wrap;
-    align-items: var(--cluster-align, center);
-    justify-content: var(--cluster-justify, flex-start);
-    gap: var(--cluster-space, 1rem);
+    align-items: var(--fc-cluster-align, center);
+    justify-content: var(--fc-cluster-justify, flex-start);
+    gap: var(--fc-cluster-space, 1rem);
   }
 
   /* Repel: pushes items to opposite edges with equal space, wrapping when needed.
 
      Config:
-       --repel-space    gap between items when wrapped (default: 1rem)
-       --repel-align    cross-axis alignment (default: center)
-       --repel-justify  main-axis alignment (default: space-between)
+       --fc-repel-space    gap between items when wrapped (default: 1rem)
+       --fc-repel-align    cross-axis alignment (default: center)
+       --fc-repel-justify  main-axis alignment (default: space-between)
 
      Usage:
        <header class="repel">…</header>
@@ -32,15 +32,15 @@
   .repel {
     display: flex;
     flex-wrap: wrap;
-    align-items: var(--repel-align, center);
-    justify-content: var(--repel-justify, space-between);
-    gap: var(--repel-space, 1rem);
+    align-items: var(--fc-repel-align, center);
+    justify-content: var(--fc-repel-justify, space-between);
+    gap: var(--fc-repel-space, 1rem);
   }
 
   /* Stack: lays out elements vertically with consistent gap.
-  
+
      Config:
-       --stack-space    vertical gap between items (default: var(--space-s))
+       --fc-stack-space    vertical gap between items (default: var(--fc-space-s))
 
      Usage:
        <div class="stack">…</div>
@@ -49,7 +49,7 @@
   .stack {
     display: flex;
     flex-direction: column;
-    gap: var(--stack-space, var(--space-s));
+    gap: var(--fc-stack-space, var(--fc-space-s));
   }
 
   /* Center (axis): centers a single child on both axes.
@@ -69,23 +69,23 @@
   /* Flow: adds consistent vertical rhythm between sibling elements.
 
      Config (set on a Block, not here):
-       --flow-space   spacing between children (default: 1em)
-     
+       --fc-flow-space   spacing between children (default: 1em)
+
        Usage:
        <div class="flow">…</div>
-       .article-body { --flow-space: 1.5rem; }
+       .article-body { --fc-flow-space: 1.5rem; }
   */
 
   .flow > :where(* + *) {
-    margin-block-start: var(--flow-space, 1em);
+    margin-block-start: var(--fc-flow-space, 1em);
   }
 
   /* Auto-grid: responsive grid that fills as many columns as fit.
-  
+
      Config:
-       --grid-min    minimum item width before wrapping (default: 16rem)
-       --grid-space  gap between items (default: 1rem)
-     
+       --fc-grid-min    minimum item width before wrapping (default: 16rem)
+       --fc-grid-space  gap between items (default: 1rem)
+
      Usage:
        <div class="auto-grid">…</div>
   */
@@ -94,8 +94,8 @@
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(min(var(--grid-min, 16rem), 100%), 1fr)
+      minmax(min(var(--fc-grid-min, 16rem), 100%), 1fr)
     );
-    gap: var(--grid-space, 1rem);
+    gap: var(--fc-grid-space, 1rem);
   }
 }
