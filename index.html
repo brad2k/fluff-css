@@ -56,6 +56,18 @@
         <div class="repel"><span class="swatch">repel</span><span class="swatch">repel</span></div>
         <div class="auto-grid"><div class="swatch">auto-grid</div><div class="swatch">auto-grid</div><div class="swatch">auto-grid</div><div class="swatch">auto-grid</div></div>
       </section>
+
+      <section id="custom" class="stack">
+        <h2>Customization example</h2>
+        <p>Customize component behavior by setting variables. Try opening DevTools and toggling these in the <code>:root</code>:</p>
+        <div class="stack" style="--fc-stack-space: var(--fc-space-xs); border: 1px solid var(--fc-color-border); padding: var(--fc-space-m); background: var(--fc-color-bg-surface); font-size: 0.875em;">
+          <div><code style="display:block; overflow:auto;">--fc-heading-letter-spacing: -0.04em;</code></div>
+          <div><code style="display:block; overflow:auto;">--fc-anchor-text-decoration: underline;</code></div>
+          <div><code style="display:block; overflow:auto;">--fc-cluster-space: 3rem;</code></div>
+          <div><code style="display:block; overflow:auto;">--fc-focus-ring: 3px dashed var(--fc-color-link);</code></div>
+        </div>
+        <p style="font-size:0.875em; color:var(--fc-color-border);">All customization variables are documented in <code>src/tokens.css</code>. In your project, set them in a theme file that imports fluff-css first.</p>
+      </section>
     </main>
   </div>
 </body>

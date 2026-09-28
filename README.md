@@ -11,14 +11,22 @@ Your project's own unlayered CSS always wins over these.
 ```
 index.css            entry point; declares layer order and imports src/
 src/layers.css       layer order (import first when going à la carte)
-src/primitives.css   raw scales (Utopia type + space)
-src/tokens.css       semantic tokens (colors, fonts, motion, focus)
+src/primitives.css   raw scales (Utopia type + space); --fc-color-grey-*, --fc-step-*, --fc-space-*
+src/tokens.css       semantic tokens (colors, fonts, motion, focus, customization overrides)
 src/reset.css
 src/base.css         bare-element styles; consume tokens, don't define them
 src/composition.css  layout primitives: stack, cluster, repel, flow, auto-grid, center-xy
 src/utilities.css
 index.html           dev playground
 ```
+
+### Variable naming
+
+All variables use the `--fc-` prefix to avoid collisions with frameworks, third-party components, and future CSS specs:
+
+- **Primitives** (raw scales): `--fc-color-grey-50`, `--fc-step-0`, `--fc-space-s`, `--fc-color-overlay-subtle`
+- **Tokens** (semantic): `--fc-color-text`, `--fc-font-size-h1`, `--fc-animation-transition-base`, `--fc-focus-ring`
+- **Customization** (consumer overrides): `--fc-anchor-text-decoration`, `--fc-heading-letter-spacing`, `--fc-cluster-space`, etc.
 
 ## Use in a project
 
@@ -37,12 +45,12 @@ import "fluff-css/reset";
 
 ## Per-project theming
 
-The library is generic; each project supplies a small theme file that redefines tokens. `base.css` only reads variables, so nothing in the library gets edited.
+The library is generic; each project supplies a small theme file that redefines tokens and customization variables. Since all fluff-css variables live in cascade layers, your unlayered project CSS always takes precedence—import order doesn't matter.
 
 ```
 my-astro-site/src/styles/
-├── theme.css     # this project's tokens: fonts, colors, scale overrides
-└── global.css    # imports the library, then the theme, then site CSS
+├── theme.css     # override tokens, customization vars, or add new rules
+└── global.css    # imports the library, then your theme
 ```
 
 ```css
@@ -51,21 +59,42 @@ my-astro-site/src/styles/
 @import "./theme.css";
 ```
 
+### Overriding tokens
+
+Change semantic values (colors, fonts, motion) for your brand:
+
 ```css
 /* theme.css */
 @font-face { font-family: "Inter"; src: url("/fonts/inter.woff2") format("woff2"); font-display: swap; }
 
 :root {
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-display: "Fraunces", serif;
-  --color-text: light-dark(#1a1a2e, #eaeaf5);
-  --color-bg: light-dark(#faf8f5, #14141f);
-  --color-link-active: light-dark(#c2410c, #fb923c);
-  --anchor-text-decoration: underline;
+  --fc-font-body: "Inter", system-ui, sans-serif;
+  --fc-font-display: "Fraunces", serif;
+  --fc-color-text: light-dark(#1a1a2e, #eaeaf5);
+  --fc-color-bg-canvas: light-dark(#faf8f5, #14141f);
+  --fc-color-link: light-dark(#2563eb, #60a5fa);
 }
 ```
 
-Primitives and tokens live in cascade layers, so unlayered project CSS always overrides them regardless of import order.
+### Customizing component behavior
+
+Adjust how specific elements render without editing the library:
+
+```css
+:root {
+  /* Links: remove underlines in prose */
+  --fc-anchor-text-decoration: none;
+  
+  /* Headings: tighter tracking */
+  --fc-heading-letter-spacing: -0.03em;
+  
+  /* Composition: increase default gaps */
+  --fc-cluster-space: 2rem;
+  --fc-stack-space: 1.75rem;
+  
+  /* Focus: stronger ring for better visibility */
+  --fc-focus-ring: 3px solid var(--fc-color-link);
+}
 
 **Replacing the scales entirely** (e.g. a different Utopia range): import à la carte and skip `primitives`:
 
