@@ -44,5 +44,32 @@
 
     /* z-index */
     --fc-z-overlay: 100;
+
+    /* Customizable overrides: consumers can set these to adjust component behavior */
+
+    /* Anchor/link customization */
+    --fc-anchor-text-decoration: none;
+    --fc-anchor-text-thickness: 1px;
+    --fc-anchor-text-hover-thickness: 2px;
+
+    /* Horizontal rule customization */
+    --fc-hr-space: var(--fc-space-s);
+    --fc-hr-width: 1px;
+
+    /* Focus & accessibility */
+    --fc-focus-offset: 0.2lh;
+
+    /* Heading customization */
+    --fc-heading-letter-spacing: -0.02em;
+
+    /* Strikethrough customization */
+    --fc-strikethrough-color: var(--fc-color-link-hover);
+
+    /* Fallback heading sizes (for when h1-h5 can't use fc-font-size-h*) */
+    --fc-text-size-step-2: var(--fc-step-2);
+    --fc-text-size-step-3: var(--fc-step-3);
+    --fc-text-size-step-4: var(--fc-step-4);
+    --fc-text-size-step-5: var(--fc-step-5);
+    --fc-text-size-step-6: var(--fc-step-5);
   }
 }
