@@ -42,7 +42,7 @@
     /*
 
       Spacing
-      @link https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+      @link https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|m-2xl|s-2xl&g=s,l,xl,12
 
     */
 
@@ -69,5 +69,6 @@
     /* Custom pairs */
     --fc-space-s-l: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
     --fc-space-m-2xl: clamp(1.6875rem, 0.3324rem + 6.0227vw, 5rem);
+    --fc-space-s-2xl: clamp(1.125rem, -0.4602rem + 7.0455vw, 5rem);
   }
 }
