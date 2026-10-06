@@ -5,14 +5,26 @@
     color-scheme: light dark;
 
     /* Color */
-    --fc-color-text: light-dark(var(--fc-color-grey-800), var(--fc-color-grey-50));
-    --fc-color-bg-canvas: light-dark(var(--fc-color-grey-50), var(--fc-color-grey-800));
+    --fc-color-text: light-dark(
+      var(--fc-color-grey-800),
+      var(--fc-color-grey-50)
+    );
+    --fc-color-bg-canvas: light-dark(
+      var(--fc-color-grey-50),
+      var(--fc-color-grey-800)
+    );
     --fc-color-bg-surface: light-dark(
       var(--fc-color-grey-100),
       var(--fc-color-grey-800)
     );
-    --fc-color-border: light-dark(var(--fc-color-grey-500), var(--fc-color-grey-200));
-    --fc-color-link: light-dark(var(--fc-color-grey-700), var(--fc-color-grey-50));
+    --fc-color-border: light-dark(
+      var(--fc-color-grey-500),
+      var(--fc-color-grey-200)
+    );
+    --fc-color-link: light-dark(
+      var(--fc-color-grey-700),
+      var(--fc-color-grey-50)
+    );
     --fc-color-link-hover: light-dark(
       var(--fc-color-grey-800),
       var(--fc-color-grey-200)
@@ -23,6 +35,7 @@
     --fc-font-display: var(--fc-font-body);
     --fc-font-size-base: var(--fc-step-0);
     --fc-leading-standard: 1.5;
+    --fc-font-weight-regular: 400;
     --fc-font-weight-semi-bold: 600;
     --fc-font-weight-bold: 700;
 

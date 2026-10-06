@@ -31,26 +31,27 @@
   a {
     color: var(--fc-color-link, currentColor);
     text-decoration: var(--fc-anchor-text-decoration);
-    text-decoration-thickness: var(--fc-anchor-text-thickness);
 
     @media (prefers-reduced-motion: no-preference) {
       transition:
         color var(--fc-animation-transition-base),
-        text-decoration-thickness var(--fc-animation-transition-base);
+        text-decoration-thickness var(--fc-animation-transition-snappy);
     }
 
     &:hover {
       color: var(--fc-color-link-hover, var(--fc-color-link));
-      text-decoration-thickness: var(--fc-anchor-text-hover-thickness);
     }
 
     main & {
-      text-decoration: underline;
-      text-underline-offset: 0.15em;
-      transition: text-underline-offset var(--fc-animation-transition-base);
+      text-decoration-line: underline;
+      text-underline-offset: 0.18em;
 
       &:hover {
         text-underline-offset: 0.2em;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: text-underline-offset var(--fc-animation-transition-base);
       }
     }
   }
