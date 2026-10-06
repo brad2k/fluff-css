@@ -4,5 +4,6 @@
 @import "./src/tokens.css";
 @import "./src/reset.css";
 @import "./src/base.css";
+@import "./src/blocks.css";
 @import "./src/composition.css";
 @import "./src/utilities.css";

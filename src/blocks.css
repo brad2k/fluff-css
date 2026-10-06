@@ -1,0 +1,5 @@
+@layer fluff.blocks {
+  .prose {
+    max-width: 70ch;
+  }
+}
