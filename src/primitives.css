@@ -68,5 +68,6 @@
 
     /* Custom pairs */
     --fc-space-s-l: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
+    --space-m-2xl: clamp(1.6875rem, 0.3324rem + 6.0227vw, 5rem);
   }
 }
