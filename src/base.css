@@ -5,12 +5,8 @@
 
 */
 
-@layer fluff.base {
-  /*
-    Global styles
-    Low-specificity, global styles
-  */
-
+@layer fc.base {
+  /* Document & Typography Defaults */
   html {
     font-family: var(--fc-font-body, system-ui, sans-serif);
     color: var(--fc-color-text, #111);
@@ -18,71 +14,82 @@
   }
 
   body {
-    font-size: var(--fc-font-size-base);
+    font-size: var(--fc-font-size-base, var(--fc-text-size-step-0, 1rem));
+    line-height: var(--fc-leading-standard, 1.4);
     font-optical-sizing: auto;
-    line-height: var(--fc-leading-standard);
     font-size-adjust: from-font;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: color var(--fc-animation-transition-base);
+      transition: color var(--fc-animation-transition-base, 200ms ease);
     }
   }
 
+  /* Headings (Mapped directly to Utopia steps, wrapped in :where for zero-specificity overrides) */
+  :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+    font-family: var(
+      --fc-font-display,
+      var(--fc-font-body, system-ui, sans-serif)
+    );
+    font-weight: var(--fc-font-weight-bold, 700);
+    line-height: var(--fc-leading-tight, 1.2);
+    letter-spacing: var(--fc-heading-letter-spacing, normal);
+  }
+
+  :where(h1, .h1) {
+    font-size: var(--fc-step-5);
+  }
+  :where(h2, .h2) {
+    font-size: var(--fc-step-4);
+  }
+  :where(h3, .h3) {
+    font-size: var(--fc-step-3);
+  }
+  :where(h4, .h4) {
+    font-size: var(--fc-step-2);
+  }
+  :where(h5, .h5, h6, .h6) {
+    font-size: var(--fc-step-1);
+  }
+
+  /* Links */
   a {
     color: var(--fc-color-link, currentColor);
-    text-decoration-line: var(--fc-anchor-text-decoration);
+    text-decoration-line: var(--fc-anchor-text-decoration, underline);
+    text-underline-offset: 0.18em;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: color var(--fc-animation-transition-base);
+      transition:
+        color var(--fc-animation-transition-base, 200ms ease),
+        text-underline-offset var(--fc-animation-transition-base, 200ms ease);
     }
 
     &:hover {
-      color: var(--fc-color-link-hover, var(--fc-color-link));
+      color: var(--fc-color-link-hover, var(--fc-color-link, currentColor));
+      text-underline-offset: 0.25em;
     }
+  }
 
-    main & {
-      text-decoration-line: underline;
-      text-underline-offset: 0.18em;
+  /* Inline Text Formatting */
+  strong,
+  b {
+    font-weight: var(--fc-font-weight-bold, 700);
+  }
 
-      &:hover {
-        text-underline-offset: 0.2em;
-      }
-
-      @media (prefers-reduced-motion: no-preference) {
-        transition: text-underline-offset var(--fc-animation-transition-base);
-      }
-    }
+  s {
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--fc-strikethrough-color, currentColor);
+    color: oklch(from currentColor l c h / 0.7);
   }
 
   hr {
     height: 0;
-    margin-block: var(--fc-hr-space);
-    border-width: 0;
-    border-top: var(--fc-hr-width) solid var(--fc-color-border);
-  }
-
-  strong {
-    font-weight: var(--fc-font-weight-semi-bold);
-  }
-
-  main img {
-    outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
-    outline-offset: -1px;
+    margin-block: var(--fc-hr-space, var(--fc-space-m, 1.5rem));
+    border: 0;
+    border-top: var(--fc-hr-width, 1px) solid
+      var(--fc-color-border, currentColor);
   }
 
   /* Accessibility */
-
-  /*
-      Firefox is the only browser that doesn't outline the whole element unless you
-      make it display: inline-block. That in itself causes multiple flow issues, so
-      we can detect it using its own vendor prefix and reduce focus offset
-  */
-
-  @supports (-moz-appearance: none) {
-    :root {
-      --fc-focus-offset: 0.08em;
-    }
-  }
 
   /* Favour focus-visible over focus so click events don't trigger focus styles */
 
@@ -96,41 +103,7 @@
   }
 
   ::selection {
-    color: var(--fc-selection-text-color);
-    background: var(--fc-selection-background);
-  }
-
-  /* Base typography */
-
-  :where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
-    font-family: var(--fc-font-display);
-    font-weight: var(--fc-font-weight-bold);
-    letter-spacing: var(--fc-heading-letter-spacing);
-  }
-
-  :where(h1, .h1) {
-    font-size: var(--fc-font-size-h1, var(--fc-text-size-step-6));
-  }
-
-  :where(h2, .h2) {
-    font-size: var(--fc-font-size-h2, var(--fc-text-size-step-5));
-  }
-
-  :where(h3, .h3) {
-    font-size: var(--fc-font-size-h3, var(--fc-text-size-step-4));
-  }
-
-  :where(h4, .h4) {
-    font-size: var(--fc-font-size-h4, var(--fc-text-size-step-3));
-  }
-
-  :where(h5, .h5, h6, .h6) {
-    font-size: var(--fc-font-size-h5, var(--fc-text-size-step-2));
-  }
-
-  s {
-    text-decoration-thickness: 2px;
-    text-decoration-color: var(--fc-strikethrough-color);
-    color: color-mix(in srgb, currentColor, transparent 30%);
+    color: var(--fc-selection-text-color, canvastext);
+    background: var(--fc-selection-background, canvas);
   }
 }

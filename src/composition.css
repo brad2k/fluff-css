@@ -1,4 +1,4 @@
-@layer fluff.composition {
+@layer fc.composition {
   /* Cluster: groups inline items with consistent gap, wrapping naturally.
 
      Config:

@@ -1,4 +1,4 @@
-@layer fluff.primitives {
+@layer fc.primitives {
   :root {
     /*
 
@@ -26,49 +26,49 @@
     /*
 
       Typography
-      @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+      @link https://utopia.fyi/type/calculator?c=360,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 
     */
 
-    --fc-step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
-    --fc-step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
-    --fc-step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
-    --fc-step-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
-    --fc-step-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
-    --fc-step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
-    --fc-step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
-    --fc-step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+    --fc-step--2: clamp(0.6944rem, 0.684rem + 0.0465vw, 0.72rem);
+    --fc-step--1: clamp(0.8333rem, 0.8061rem + 0.1212vw, 0.9rem);
+    --fc-step-0: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+    --fc-step-1: clamp(1.2rem, 1.1156rem + 0.375vw, 1.4063rem);
+    --fc-step-2: clamp(1.44rem, 1.31rem + 0.5778vw, 1.7578rem);
+    --fc-step-3: clamp(1.728rem, 1.536rem + 0.8532vw, 2.1973rem);
+    --fc-step-4: clamp(2.0736rem, 1.7983rem + 1.2236vw, 2.7466rem);
+    --fc-step-5: clamp(2.4883rem, 2.1018rem + 1.718vw, 3.4332rem);
 
     /*
 
       Spacing
-      @link https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|m-2xl|s-2xl&g=s,l,xl,12
+      @link https://utopia.fyi/space/calculator?c=360,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|s-2xl|m-2xl&g=s,l,xl,12
 
     */
 
-    --fc-space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
-    --fc-space-2xs: clamp(0.5625rem, 0.5369rem + 0.1136vw, 0.625rem);
-    --fc-space-xs: clamp(0.875rem, 0.8494rem + 0.1136vw, 0.9375rem);
-    --fc-space-s: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
-    --fc-space-m: clamp(1.6875rem, 1.6108rem + 0.3409vw, 1.875rem);
-    --fc-space-l: clamp(2.25rem, 2.1477rem + 0.4545vw, 2.5rem);
-    --fc-space-xl: clamp(3.375rem, 3.2216rem + 0.6818vw, 3.75rem);
-    --fc-space-2xl: clamp(4.5rem, 4.2955rem + 0.9091vw, 5rem);
-    --fc-space-3xl: clamp(6.75rem, 6.4432rem + 1.3636vw, 7.5rem);
+    --fc-space-3xs: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
+    --fc-space-2xs: clamp(0.5rem, 0.4744rem + 0.1136vw, 0.5625rem);
+    --fc-space-xs: clamp(0.75rem, 0.6989rem + 0.2273vw, 0.875rem);
+    --fc-space-s: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+    --fc-space-m: clamp(1.5rem, 1.4233rem + 0.3409vw, 1.6875rem);
+    --fc-space-l: clamp(2rem, 1.8977rem + 0.4545vw, 2.25rem);
+    --fc-space-xl: clamp(3rem, 2.8466rem + 0.6818vw, 3.375rem);
+    --fc-space-2xl: clamp(4rem, 3.7955rem + 0.9091vw, 4.5rem);
+    --fc-space-3xl: clamp(6rem, 5.6932rem + 1.3636vw, 6.75rem);
 
     /* One-up pairs */
-    --fc-space-3xs-2xs: clamp(0.3125rem, 0.1847rem + 0.5682vw, 0.625rem);
-    --fc-space-2xs-xs: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
-    --fc-space-xs-s: clamp(0.875rem, 0.7216rem + 0.6818vw, 1.25rem);
-    --fc-space-s-m: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
-    --fc-space-m-l: clamp(1.6875rem, 1.3551rem + 1.4773vw, 2.5rem);
-    --fc-space-l-xl: clamp(2.25rem, 1.6364rem + 2.7273vw, 3.75rem);
-    --fc-space-xl-2xl: clamp(3.375rem, 2.7102rem + 2.9545vw, 5rem);
-    --fc-space-2xl-3xl: clamp(4.5rem, 3.2727rem + 5.4545vw, 7.5rem);
+    --fc-space-3xs-2xs: clamp(0.25rem, 0.1222rem + 0.5682vw, 0.5625rem);
+    --fc-space-2xs-xs: clamp(0.5rem, 0.3466rem + 0.6818vw, 0.875rem);
+    --fc-space-xs-s: clamp(0.75rem, 0.5966rem + 0.6818vw, 1.125rem);
+    --fc-space-s-m: clamp(1rem, 0.7188rem + 1.25vw, 1.6875rem);
+    --fc-space-m-l: clamp(1.5rem, 1.1932rem + 1.3636vw, 2.25rem);
+    --fc-space-l-xl: clamp(2rem, 1.4375rem + 2.5vw, 3.375rem);
+    --fc-space-xl-2xl: clamp(3rem, 2.3864rem + 2.7273vw, 4.5rem);
+    --fc-space-2xl-3xl: clamp(4rem, 2.875rem + 5vw, 6.75rem);
 
     /* Custom pairs */
-    --fc-space-s-l: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
-    --fc-space-m-2xl: clamp(1.6875rem, 0.3324rem + 6.0227vw, 5rem);
-    --fc-space-s-2xl: clamp(1.125rem, -0.4602rem + 7.0455vw, 5rem);
+    --fc-space-s-l: clamp(1rem, 0.4886rem + 2.2727vw, 2.25rem);
+    --fc-space-s-2xl: clamp(1rem, -0.4318rem + 6.3636vw, 4.5rem);
+    --fc-space-m-2xl: clamp(1.5rem, 0.2727rem + 5.4545vw, 4.5rem);
   }
 }

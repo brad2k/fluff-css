@@ -7,7 +7,7 @@
 
 /* Box sizing rules */
 
-@layer fluff.reset {
+@layer fc.reset {
   *,
   *::before,
   *::after {
@@ -71,7 +71,7 @@
   /* Set shorter line heights on headings and interactive elements */
 
   :where(h1, h2, h3, h4, h5, h6, button, input, label) {
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
   :where(p, h1, h2, h3, h4, h5, h6) {
@@ -80,7 +80,7 @@
 
   /* Balance text wrapping on headings */
 
-  :where(h1, h2, h3, h4, h5, h6) {
+  :where(h1, h2, h3, h4) {
     text-wrap: balance;
   }
 
@@ -95,8 +95,9 @@
 
   /* Inherit fonts for inputs and buttons */
 
-  :where(input, button, textarea, select) {
+  :where(button, input, optgroup, select, textarea) {
     font: inherit;
+    line-height: inherit;
   }
 
   /* Button resets */
@@ -106,7 +107,6 @@
     padding: 0;
     border: none;
     background: transparent;
-    cursor: pointer;
     text-align: left;
     color: inherit;
   }
@@ -126,7 +126,7 @@
 
   /* Make images easier to work with */
 
-  :where(img, video) {
+  :where(img, picture, video) {
     display: block;
     block-size: auto;
     max-inline-size: 100%;

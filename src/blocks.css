@@ -1,4 +1,4 @@
-@layer fluff.blocks {
+@layer fc.blocks {
   .prose {
     max-width: 70ch;
   }
